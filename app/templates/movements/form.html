@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1 class="page-title">{{ 'Edit' if is_edit else 'Move' }} Product</h1>
+<form method="post" class="form">
+  {{ form.hidden_tag() }}
+  <div class="form-row">
+    {{ form.movement_id.label }}
+    {{ form.movement_id(class_='input') }}
+  </div>
+  <div class="form-row">
+    {{ form.product_id.label }}
+    {{ form.product_id(class_='input') }}
+  </div>
+  <div class="form-row">
+    {{ form.from_location.label }}
+    {{ form.from_location(class_='input') }}
+  </div>
+  <div class="form-row">
+    {{ form.to_location.label }}
+    {{ form.to_location(class_='input') }}
+  </div>
+  <div class="form-row">
+    {{ form.qty.label }}
+    {{ form.qty(class_='input') }}
+  </div>
+  <div class="form-actions">
+    <a class="btn secondary" href="{{ url_for('main.movements_list') }}">Cancel</a>
+    {{ form.submit(class_='btn', value='Save Movement') }}
+  </div>
+</form>
+<p class="hint">Tip: For inbound, leave From empty. For outbound, leave To empty.</p>
+{% endblock %}

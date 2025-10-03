@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="toolbar">
+  <h1 class="page-title">Locations</h1>
+  <a class="btn" href="{{ url_for('main.locations_add') }}">Add Location</a>
+</div>
+<table class="table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Address</th>
+      <th class="right">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for l in locations %}
+    <tr>
+      <td>{{ l.location_id }}</td>
+      <td>{{ l.name }}</td>
+      <td>{{ l.address or '' }}</td>
+      <td class="right">
+        <a class="link" href="{{ url_for('main.locations_edit', location_id=l.location_id) }}">Edit</a>
+        <form action="{{ url_for('main.locations_delete', location_id=l.location_id) }}" method="post" class="inline">
+          <button class="link danger" onclick="return confirm('Delete location?')">Delete</button>
+        </form>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1 class="page-title">Inventory Management</h1>
+<div class="grid">
+  <a class="card" href="{{ url_for('main.products_list') }}">
+    <h3>Products</h3>
+    <p>Add, edit and view products</p>
+  </a>
+  <a class="card" href="{{ url_for('main.locations_list') }}">
+    <h3>Locations</h3>
+    <p>Manage warehouse locations</p>
+  </a>
+  <a class="card" href="{{ url_for('main.movements_list') }}">
+    <h3>Move Product</h3>
+    <p>Record product movements</p>
+  </a>
+  <a class="card" href="{{ url_for('main.report') }}">
+    <h3>Report</h3>
+    <p>View balances per location</p>
+  </a>
+</div>
+{% endblock %}

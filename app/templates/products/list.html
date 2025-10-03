@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="toolbar">
+  <h1 class="page-title">Products</h1>
+  <a class="btn" href="{{ url_for('main.products_add') }}">Add Product</a>
+</div>
+<table class="table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th class="right">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for p in products %}
+    <tr>
+      <td>{{ p.product_id }}</td>
+      <td>{{ p.name }}</td>
+      <td>{{ p.description or '' }}</td>
+      <td class="right">
+        <a class="link" href="{{ url_for('main.products_edit', product_id=p.product_id) }}">Edit</a>
+        <form action="{{ url_for('main.products_delete', product_id=p.product_id) }}" method="post" class="inline">
+          <button class="link danger" onclick="return confirm('Delete product?')">Delete</button>
+        </form>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

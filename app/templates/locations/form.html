@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1 class="page-title">{{ 'Edit' if is_edit else 'Add' }} Location</h1>
+<form method="post" class="form">
+  {{ form.hidden_tag() }}
+  <div class="form-row">
+    {{ form.name.label }}
+    {{ form.name(class_='input') }}
+  </div>
+  <div class="form-row">
+    {{ form.address.label }}
+    {{ form.address(class_='input') }}
+  </div>
+  <div class="form-actions">
+    <a class="btn secondary" href="{{ url_for('main.locations_list') }}">Cancel</a>
+    {{ form.submit(class_='btn') }}
+  </div>
+</form>
+{% endblock %}

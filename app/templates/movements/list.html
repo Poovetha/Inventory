@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="toolbar">
+  <h1 class="page-title">Movements</h1>
+  <a class="btn" href="{{ url_for('main.movements_add') }}">Move Product</a>
+</div>
+<table class="table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Timestamp</th>
+      <th>Product</th>
+      <th>From</th>
+      <th>To</th>
+      <th>Qty</th>
+      <th class="right">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for m in movements %}
+    <tr>
+      <td>{{ m.movement_id }}</td>
+      <td>{{ m.timestamp.strftime('%Y-%m-%d %H:%M') }}</td>
+      <td>{{ m.product_id }}</td>
+      <td>{{ m.from_location or '' }}</td>
+      <td>{{ m.to_location or '' }}</td>
+      <td>{{ m.qty }}</td>
+      <td class="right">
+        <a class="link" href="{{ url_for('main.movements_edit', movement_id=m.movement_id) }}">Edit</a>
+        <form action="{{ url_for('main.movements_delete', movement_id=m.movement_id) }}" method="post" class="inline">
+          <button class="link danger" onclick="return confirm('Delete movement?')">Delete</button>
+        </form>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

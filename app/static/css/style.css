@@ -1,0 +1,35 @@
+:root{--bg:#0e0f12;--surface:#151821;--muted:#8b92a6;--text:#e7eaf3;--primary:#6ea8fe;--danger:#ff6b6b;--ok:#2ecc71;--border:#232634}
+*{box-sizing:border-box}
+html,body{background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,'Helvetica Neue',Arial,sans-serif;line-height:1.5}
+.container{max-width:1000px;margin:0 auto;padding:20px}
+.navbar{background:var(--surface);border-bottom:1px solid var(--border)}
+.navbar .brand{color:var(--text);text-decoration:none;font-weight:700}
+.nav-links a{color:var(--muted);text-decoration:none;margin-left:16px}
+.nav-links a:hover{color:var(--text)}
+.footer{border-top:1px solid var(--border);padding:20px 0;color:var(--muted);margin-top:40px}
+.page-title{margin:8px 0 16px}
+.toolbar{display:flex;justify-content:space-between;align-items:center}
+.btn{background:var(--primary);color:#0b1020;padding:10px 14px;border-radius:8px;text-decoration:none;border:none;cursor:pointer}
+.btn.secondary{background:#2b2f3a;color:var(--text)}
+.link{color:var(--primary);text-decoration:none;margin-left:10px}
+.link.danger{color:var(--danger);background:none;border:none}
+.inline{display:inline}
+.table{width:100%;border-collapse:separate;border-spacing:0 8px}
+.table th,.table td{padding:12px 14px}
+.table thead th{color:var(--muted);font-weight:600;text-align:left}
+.table tbody tr{background:var(--surface);border:1px solid var(--border)}
+.table tbody tr:hover{background:#1b2030}
+.table .right{text-align:right}
+.form{background:var(--surface);padding:20px;border:1px solid var(--border);border-radius:10px}
+.form-row{display:flex;flex-direction:column;margin-bottom:12px}
+.input{background:#0f1320;border:1px solid var(--border);color:var(--text);padding:10px;border-radius:8px;width:100%}
+.form-actions{display:flex;justify-content:flex-end;gap:10px}
+.flash-group{margin:10px 0}
+.flash{padding:10px 12px;border-radius:8px;margin-bottom:6px}
+.flash.success{background:#153a2b;color:#a7f3d0}
+.flash.warning{background:#3a2e15;color:#fde68a}
+.flash.info{background:#152f3a;color:#93c5fd}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px}
+.card{display:block;background:var(--surface);border:1px solid var(--border);padding:16px;border-radius:10px;color:var(--text);text-decoration:none}
+.card:hover{border-color:var(--primary)}
+@media (max-width:600px){.nav-links{display:none}}
