@@ -67,3 +67,6 @@ app/
 Repository description:
 "Simple Flask app to manage products, locations, and movements with a basic balance report. Easy setup with SQLite."
 
+Project Demo Video:
+https://github.com/user-attachments/assets/5bfe7023-f9d3-4020-b178-b76d607429c9
+
